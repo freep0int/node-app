@@ -61,17 +61,17 @@ location /api {
   }
 
 
-
+--------------------------------------------------
 
 apt install npm
-
 git clone git@github.com:bkmzci/projectm.git 
-
+npm install
 nano /root/projectm/api/node_modules/whatwg-url/lib/encoding.js
 
 const { TextEncoder, TextDecoder } = require("util");
+--------------------------------------------------------------
 
-
+--------------------------------
 // mongodb ubuntuya indirme
 sudo apt-get update
 sudo apt-get install -y mongodb
@@ -80,27 +80,21 @@ sudo service mongodb status
 mongo
 use projectm
 db.createCollection("domains")
+-----------------------------------
 
 
-npm install
 
-
+--------------------------------------------------
 npm i -g pm2
-
-
 pm2 start --name api app.js   
-
 pm2 startup ubuntu 
+----------------------------------------------------
 
-
+---------------------------------------------------------
 cd client
-
 rm -rf /var/www/projectm/*
-
 mkdir /var/www/projectm/client
-
 cp -r build/* /var/www/projectm/client
-
 nano /etc/nginx/sites-available/projectm
 
  location / {
@@ -113,6 +107,6 @@ nano /etc/nginx/sites-available/projectm
         proxy_cache_bypass $http_upgrade;
         try_files $uri $uri/ /index.html;
   }
-
+-----------------------------------------------------------------
 
 
