@@ -6,6 +6,8 @@ ufw enable
 
 ufw allow ssh
 
+ufw allow 5000
+
 ufw allow "Nginx Full"
 
 cd /var/www/
