@@ -48,14 +48,6 @@ ln -s /etc/nginx/sites-available/projectm /etc/nginx/sites-enabled/projectm
 
 systemctl start nginx
 
-apt install git
-
-mkdir projectm
-
-cd projectm
-
-git clone git@github.com:bkmzci/projectm.git .
-
 
 nano /etc/nginx/sites-available/projectm
 
@@ -69,15 +61,26 @@ location /api {
   }
 
 
-apt install nodejs
+
 
 apt install npm
 
-cd api
+git clone git@github.com:bkmzci/projectm.git 
 
 nano /root/projectm/api/node_modules/whatwg-url/lib/encoding.js
 
 const { TextEncoder, TextDecoder } = require("util");
+
+
+// mongodb ubuntuya indirme
+sudo apt-get update
+sudo apt-get install -y mongodb
+sudo service mongodb start
+sudo service mongodb status
+mongo
+use projectm
+db.createCollection("domains")
+
 
 npm install
 
